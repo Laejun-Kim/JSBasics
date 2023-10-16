@@ -29,12 +29,12 @@
 //나는 어차피 완전히 새로 배우는 입장이니 처음부터 문제될만한 코딩을 안배우면 된다.
 // let 과 const를 사용하는 것만으로도 그런 안좋은 코딩을 상당부분 방지할 수 있다.
 
-function getName() {
-  return prompt("Your name : ", "");
-}
-function greet() {
-  const userName = getName();
-  console.log("Hello " + userName);
-}
+// function getName() {
+//   return prompt("Your name : ", "");
+// }
+// function greet() {
+//   const userName = getName();
+//   console.log("Hello " + userName);
+// }
 
-greet();
+// greet();
