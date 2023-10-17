@@ -18,6 +18,7 @@ me.speak();
 
 class Dog extends Animal {
   //부모에게서 constructor와 메서드를 전부 그대로 내려받음. 부모에게서 내려받은 메서드를 재정의 할 수 있음.
+  //이렇게 부모 메서드를 재정의 하는걸 overriding 이라고 함.
   speak() {
     console.log(`${this.name} barks!`);
   }

@@ -6,16 +6,20 @@
 //3. 만든 인스턴스를 통해서 마지막에 set 해서 get 하는 로직까지
 
 class Car {
+  #modelName;
+  #modelYear;
+  #type;
+  #price;
   constructor(modelName, modelYear, type, price) {
-    this._modelName = modelName;
-    this._modelYear = modelYear;
-    this._type = type;
-    this._price = price;
+    this.#modelName = modelName;
+    this.#modelYear = modelYear;
+    this.#type = type;
+    this.#price = price;
   }
 
-  get modelName() {
-    return this._modelName;
-  }
+  // get modelName() {
+  //   return this.#modelName;
+  // }
   //setters로 입력값에 대한 검증이 가능하게 한다
   set modelName(value) {
     //유효성검사
@@ -26,10 +30,10 @@ class Car {
       console.log("[오류] 입력된 모델명이 문자형이 아닙니다");
       return;
     }
-    this._modelName = value;
+    this.#modelName = value;
   }
   get modelYear() {
-    return this._modelYear;
+    return this.#modelYear;
   }
   set modelYear(value) {
     if (value.length <= 4) {
@@ -39,10 +43,10 @@ class Car {
       console.log("[오류] 입력된 연도가 문자형이 아닙니다");
       return;
     }
-    this._modelYear = value;
+    this.#modelYear = value;
   }
   get type() {
-    return this._type;
+    return this.#type;
   }
   set type(value) {
     if (value.length <= 0) {
@@ -54,10 +58,10 @@ class Car {
       console.log("[오류] 입력된 타입이 잘못되었습니다.");
       return;
     }
-    this._type = value;
+    this.#type = value;
   }
   get price() {
-    return this._price;
+    return this.#price;
   }
   set price(value) {
     if (typeof value !== "number") {
@@ -67,14 +71,14 @@ class Car {
       console.log("[오류] 가격은 100만원보다 작을 수 없습니다.");
       return;
     }
-    this._price = value;
+    this.#price = value;
   }
 
   makeNoise() {
-    console.log(`${this._modelName}: 빵!`);
+    console.log(`${this.#modelName}: 빵!`);
   }
   printModelYear() {
-    console.log(`${this._modelName}은 ${this._modelYear}년식 입니다.`);
+    console.log(`${this.#modelName}은 ${this.#modelYear}년식 입니다.`);
   }
 }
 
@@ -85,12 +89,12 @@ class Car {
 // console.log(car3);
 // car1.makeNoise();
 // car2.printModelYear();
-const car1 = new Car("sorento", "2023", "e", 5000);
+const car1 = new Car("Taycan", "2023", "EV", 5000);
 //getter 예시
 // console.log(car1.modelName);
 //setter 예시
 // car1.modelName = 1; // 내가 설정한 검증 로직이 잘 작동하는지 보기 위해 일부러 invalid 한 모델명을 넣어봄.
-console.log(car1.modelName);
+console.log(car1.#modelName);
 console.log(car1.type); //getter 설정해둔거(44~46번줄) 주석처리해도 상관없는것 같은데 getter는 왜 존재하는가?
 //왜 데이터의 복사본을 만들어서 줘야하는가? 일반 클래스로 어떤 인스턴스의 프로퍼티에 접근한다고 했을떄
 //그 프로퍼티가 참조값이라면 주소가 변수에 할당되어있다. 주소가 할당이 되기 때문에.
